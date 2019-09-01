@@ -15,11 +15,9 @@ def Melon_Singer():
 
     singers = bsObj.findAll("span", {"class": "checkEllipsis"})
     song_title = bsObj.findAll("div", {"class": "ellipsis rank01"})
-
     result = []
 
     print("입력하신 " + Singer + "에 대한 내용을 뽑아왔어요!!")
-    singer = []
     for i in range(len(singers)):
         singer = singers[i].text.strip()
         title = song_title[i].text.strip()
@@ -33,6 +31,15 @@ def Melon_Singer():
 
     else:
         print("앗!" + Singer + "라는 가수, 또는 노래가 존재하지 않습니다.")
+
+    file = open("{}_to belongings Rank_100_(melon)".format(Singer), 'w', -1, 'UTF-8')
+    for i in result:
+        file.write(i + "\n")
+    if len(result) > 0:
+        print("파일 쓰기 완료!!!")
+        file.close()
+    else:
+        print("데이터 저장 실패ㅠㅠ")
 
     print("계속해서 다른 서비스들도 이용하시겠습니까?")
     print("1. 예    2. 아니오")

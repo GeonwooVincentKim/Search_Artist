@@ -30,6 +30,15 @@ def genie_artist_rank():
     else:
         print("앗! " +indi_rank + "에 관한 내용이 없다고 그래요ㅠㅠ 다시 한 번 확인해주세요")
 
+    file = open("{}_to belongings Rank_(genie).txt".format(indi_rank), 'w', -1, 'UTF-8')
+    for i in result:
+        file.write(i + "\n")
+    if len(result) > 0:
+        print("파일 쓰기 완료!!!")
+        file.close()
+    else:
+        print("데이터 저장 실패ㅠㅠ")
+
     print("계속해서 다른 서비스들도 이용하시겠습니까?")
     print("1. 예    2. 아니오")
     a = input("메뉴 선택 : ")

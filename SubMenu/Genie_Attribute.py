@@ -11,7 +11,7 @@ def mGenie():
     print("1. 실시간 차트")
     print("2. 가수 이름")
     print("3. 가수별 순위")
-    print("4. 빡구 하실??")
+    print("4. 뒤로 가기")
     select_genie = input("원하시는 메뉴를 선택하세요!!! : ")
     select_list = []
 

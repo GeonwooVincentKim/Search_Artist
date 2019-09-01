@@ -27,6 +27,17 @@ def genie_real_time():
 
     else:
         print("앗! 데이터를 뽑아오지 못했어요ㅠㅠ")
+    
+    file = open("Genie_RealTime_Rank_200.txt", 'w', -1, 'UTF-8')
+    for i in result:
+        file.write(i + "\n")
+    
+    if len(result) > 0:
+        print("파일 쓰기 완료!!!")
+        file.close()
+    
+    else:
+        print("데이터 저장 실패ㅠㅠ")
 
     print("계속해서 다른 서비스들도 이용하시겠습니까?")
     print("1. 예    2. 아니오")

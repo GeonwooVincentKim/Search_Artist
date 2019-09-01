@@ -48,7 +48,7 @@ def mMelon():
             # melon = print_menu('', print_menu)
             # select_list.append(melon)
             # cjw = ChatBotModel.BotCK()
-            kkw = print_menu('back', print_menu)
+            kkw = print_menu()
             select_list.append(kkw)
             break
 

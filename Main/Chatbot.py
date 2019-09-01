@@ -7,9 +7,12 @@
 import time
 
 import ChatBotModel
+
 from Main.ManageAllFile.ManageFile import *
 from SubMenu.Melon_Attribute import *
 from SubMenu.Genie_Attribute import *
+from SubMenu.Bug_Attribute import *
+from SubMenu.Bugs import *
 
 import sys
 
@@ -42,14 +45,16 @@ def print_menu(bot, update):
             cjw.sendMessage("Hold On Please...")
             print("Hold On Please...")
             time.sleep(2)
+            bugs = mBugs()
+            select_list.append(bugs)
             break
 
         elif select_menu is '3':
             cjw.sendMessage("Hold on Please...")
             print("Hold on please..")
             time.sleep(2)
-            melon = mGenie()
-            select_list.append(melon)
+            genie = mGenie()
+            select_list.append(genie)
             break
 
 

@@ -5,15 +5,10 @@ import requests
 
 
 def Melon_Real_time():
-    # try:
+    result = []
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko"}
     get_File = requests.get("https://www.melon.com/chart/index.htm", headers=headers)
-    # except HTTPError as e:
-    # print("앗..!! 인터넷이 접속이 끊겨져 있어요.. 인터넷에 접속 되었는지 확인해주세요!!!")
-    # return None
 
-    # try:
-    result = []
     html = get_File.text
     bsObj = BeautifulSoup(html, "html.parser")
 
@@ -25,8 +20,21 @@ def Melon_Real_time():
     for i in range(len(charts)):
         chart = charts[i].text.strip()
         artist = artists[i].text.strip()
-        # result += ["{0:3d}위 {1} - {2}".format(i + 1, chart, artist)]
-        print("{0:3d}위 {1} - {2}".format(i+1, chart, artist))
+        result += ["{0:3d}위 {1} - {2}".format(i + 1, chart, artist)]
+        # print("{0:3d}위 {1} - {2}".format(i+1, chart, artist))
+
+    if len(result) > 0:
+        for r in result:
+            print(r)
+
+    file = open("{}_RealTime_Rank_100.txt", 'w', -1, 'UTF-8')
+    for i in result:
+        file.write(i + "\n")
+    if len(result) > 0:
+        print("파일 쓰기 완료!!!")
+        file.close()
+    else:
+        print("데이터 저장 실패ㅠㅠ")
 
     print("계속해서 다른 서비스들도 이용하시겠습니까?")
     print("1. 예    2. 아니오")

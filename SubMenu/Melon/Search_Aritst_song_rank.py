@@ -4,7 +4,7 @@ import time
 
 def Melon_Artist_individual_rank():
     result = []
-    Individual_Singer_Rank = input("원하시는 가수를 입력하세요!!! (한글)")
+    Individual_Singer_Rank = input("원하시는 가수를 입력하세요!!! : ")
     driver = webdriver.Chrome('D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver.exe')
     driver.get("https://www.melon.com/")
     time.sleep(4.5)
@@ -28,6 +28,15 @@ def Melon_Artist_individual_rank():
 
     else:
         print("앗! " + Individual_Singer_Rank + "에 대한 정보가 없어요ㅠㅠ")
+
+    file = open("{}_rank_(melon).txt".format(Individual_Singer_Rank), 'w', -1, 'UTF-8')
+    for i in result:
+        file.write(i + '\n')
+    if len(result) > 0:
+        print("파일 쓰기 완료!!!")
+        file.close()
+    else:
+        print("데이터 저장 실패ㅠㅠ")
 
     print("계속해서 다른 서비스들도 이용하시겠습니까?")
     print("1. 예    2. 아니오")
