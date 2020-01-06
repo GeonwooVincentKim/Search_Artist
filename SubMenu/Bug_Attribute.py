@@ -15,7 +15,7 @@ from Bugs.Bugs_Real_Time_Rank import bugs_song_chart_real_time
 from Bugs.Bugs_Artist_Individual_Search import bugs_artist_individual
 
 import time
-import ChatBotModel
+# import ChatBotModel
 
 
 def mBugs():

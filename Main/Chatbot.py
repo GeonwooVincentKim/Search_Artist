@@ -20,11 +20,11 @@ import sys
 def print_menu(bot, update):
     print("testtesttesttest")
     print("Hello")
-    cjw.sendMessage("Hello\n Welcome to Music Chatbot")
+    # cjw.sendMessage("Hello\n Welcome to Music Chatbot")
     # cjw.sendMessage("안녕하세요\n 뮤직 챗봇에 오신 것을 환영합니다.")
-    cjw.sendMessage("1. Melon")
-    cjw.sendMessage("2. Bugs")
-    cjw.sendMessage("3. Genie")
+    # cjw.sendMessage("1. Melon")
+    # cjw.sendMessage("2. Bugs")
+    # cjw.sendMessage("3. Genie")
     # print("안녕하세요\n 뮤직 챗봇에 오신 것을 환영합니다.")
     # print("1. Melon 사이트")
     # print("2. Bugs 사이트")
@@ -34,7 +34,7 @@ def print_menu(bot, update):
     select_list = []
     while 1:
         if select_menu is '1':
-            cjw.sendMessage("Hold on Please...")
+            # cjw.sendMessage("Hold on Please...")
             print("Hold on please..")
             time.sleep(2)
             melon = mMelon()
@@ -42,7 +42,7 @@ def print_menu(bot, update):
             break
 
         elif select_menu is '2':
-            cjw.sendMessage("Hold On Please...")
+            # cjw.sendMessage("Hold On Please...")
             print("Hold On Please...")
             time.sleep(2)
             bugs = mBugs()
@@ -50,7 +50,7 @@ def print_menu(bot, update):
             break
 
         elif select_menu is '3':
-            cjw.sendMessage("Hold on Please...")
+            # cjw.sendMessage("Hold on Please...")
             print("Hold on please..")
             time.sleep(2)
             genie = mGenie()
@@ -84,10 +84,10 @@ def print_menu(bot, update):
 if __name__ == "__main__":
     # print("test")
     # print_menu()
-    cjw = ChatBotModel.BotCK()
-    cjw.add_handler('STTTAAARRT', print_menu)
+    # cjw = ChatBotModel.BotCK()
+    # cjw.add_handler('STTTAAARRT', print_menu)
     # cjw.add_handler('WAIT', mMelon)
     # # cjw.add_handler('rolling', proc_rolling)
     # # cjw.add_handler('너_미쳤냐??', proc_너_미쳤냐)
     # # cjw.add_handler('stop', proc_stop)
-    cjw.start()
+    # cjw.start()
