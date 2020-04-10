@@ -8,7 +8,7 @@ def genie_artist_individual():
     result = []
     individual_artist = input("원하시는 가수, 또는 원하는 곡의 이름을 입력해주세요 : ")
 
-    driver = webdriver.Chrome("D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver.exe")
+    driver = webdriver.Chrome("D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver/chromedriver.exe")
     driver.get("https://www.genie.co.kr")
     time.sleep(1.2)
 
