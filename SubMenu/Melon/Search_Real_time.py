@@ -27,7 +27,7 @@ def Melon_Real_time():
         for r in result:
             print(r)
 
-    file = open("{}_RealTime_Rank_100.txt", 'w', -1, 'UTF-8')
+    file = open("Melon_RealTime_Rank_100.txt", 'w', -1, 'UTF-8')
     for i in result:
         file.write(i + "\n")
     if len(result) > 0:

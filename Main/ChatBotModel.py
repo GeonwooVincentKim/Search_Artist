@@ -30,7 +30,7 @@ class BotCK(TelegramBot):
         self.updater.dispatcher.add_handler(CommandHandler(cmd, func))
 
     def start(self):
-        self.sendMessage('Initializing...Wait for a second')
+        self.sendMessage('Please Press "/stttaaarrt" to start this project.')
         self.updater.start_polling()
         time.sleep(5)
         self.updater.idle()

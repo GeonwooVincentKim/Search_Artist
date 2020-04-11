@@ -17,7 +17,7 @@ def mMelon():
     # print("2. 가수 이름")
     # print("3. 가수별 순위")
 
-    # print("4. BBAK-GU Bro!!!!")
+    # print("4. Main 으로 돌아가기")
     select_melon = input("Please Select the Menu : ")
     select_list = []
     while 1:
@@ -50,7 +50,7 @@ def mMelon():
             # cjw = ChatBotModel.BotCK()
             kkw = print_menu()
             select_list.append(kkw)
-            break
+
 
 
 

@@ -18,19 +18,20 @@ import sys
 
 
 def print_menu(bot, update):
-    print("testtesttesttest")
-    print("Hello")
+    # print("testtesttesttest")
+    # print("Hello")
     # cjw.sendMessage("Hello\n Welcome to Music Chatbot")
     # cjw.sendMessage("안녕하세요\n 뮤직 챗봇에 오신 것을 환영합니다.")
     # cjw.sendMessage("1. Melon")
     # cjw.sendMessage("2. Bugs")
     # cjw.sendMessage("3. Genie")
-    # print("안녕하세요\n 뮤직 챗봇에 오신 것을 환영합니다.")
-    # print("1. Melon 사이트")
-    # print("2. Bugs 사이트")
-    # print("3. Genie 사이트")
+    print("Hi. Welcome to Music Chatbot Application!!")
+    print("1. Melon")
+    print("2. Bugs")
+    print("3. Genie")
     # cjw.sendMessage("무엇을 도와드릴까요? : ")
-    select_menu = input("What Can I Help you? : ")
+    # select_menu = input("What Can I Help you? : ")
+    select_menu = input("무엇을 도와드릴까요? : ")
     select_list = []
     while 1:
         if select_menu is '1':
@@ -55,6 +56,10 @@ def print_menu(bot, update):
             time.sleep(2)
             genie = mGenie()
             select_list.append(genie)
+            break
+
+        elif select_menu is '4':
+            print("Thank you for using this Chatbot_WebCrawler Application")
             break
 
 

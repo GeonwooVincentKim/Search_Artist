@@ -30,7 +30,7 @@ def Melon_Artist_individual_rank():
     else:
         print("앗! " + Individual_Singer_Rank + "에 대한 정보가 없어요ㅠㅠ")
 
-    file = open("{}_rank_(melon).txt".format(Individual_Singer_Rank), 'w', -1, 'UTF-8')
+    file = open("{}'s_Song_Rank_(melon).txt".format(Individual_Singer_Rank), 'w', -1, 'UTF-8')
     for i in result:
         file.write(i + '\n')
     if len(result) > 0:
