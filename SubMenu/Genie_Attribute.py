@@ -7,41 +7,35 @@ import ChatBotModel
 
 
 def mGenie():
-    print("Genie 에 오신 고객님, 환영합니다!!!!")
-    print("1. 실시간 차트")
-    print("2. 가수 이름")
-    print("3. 가수별 순위")
-    print("4. 뒤로 가기")
-    select_genie = input("원하시는 메뉴를 선택하세요!!! : ")
+    print("Welcome to Genie")
+    print("1. Realtime Chart")
+    print("2. Singer's name")
+    print("3. Rank for each Singer's")
+    print("4. Back to the Main File")
+    select_genie = input("Please Select the Menu : ")
     select_list = []
 
     while 1:
+        print("Hold on Please..")
+        time.sleep(2)
         if select_genie is '1':
-            print("잠시만요.. ")
-            time.sleep(1.2)
             genie = genie_real_time()
             select_list.append(genie)
             break
 
         elif select_genie is '2':
-            print("잠시만요..")
-            time.sleep(1.2)
             genie = genie_artist_rank()
             select_list.append(genie)
             break
 
         elif select_genie is '3':
-            print("잠시만요..")
-            time.sleep(1.2)
             genie = genie_artist_individual()
             select_list.append(genie)
             break
 
         elif select_genie is '4':
-            print("잠시만요..")
-            time.sleep(1.5)
             from Chatbot import print_menu
-            genie = print_menu()
+            genie = print_menu('name', '912709363:AAHx1AyZD1mfj-CQBDL-tUjk3nKfRHCZ568')
             select_list.append(genie)
 
 

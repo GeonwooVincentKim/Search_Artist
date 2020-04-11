@@ -6,7 +6,7 @@ import requests
 
 
 def Melon_Singer():
-    Singer = input("원하시는 가수, 또는 원하시는 곡 명을 입력하세요 (한글)")
+    Singer = input("Enter the name of the singer or the song you want (Korean)")
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko"}
     get_singers = requests.get("https://www.melon.com/chart/index.htm", headers=headers)
 
@@ -17,45 +17,44 @@ def Melon_Singer():
     song_title = bsObj.findAll("div", {"class": "ellipsis rank01"})
     result = []
 
-    print("입력하신 " + Singer + "에 대한 내용을 뽑아왔어요!!")
+    print("This is the result of " + Singer + " you want.")
     for i in range(len(singers)):
         singer = singers[i].text.strip()
         title = song_title[i].text.strip()
 
         if Singer in singer or Singer in title:
-            result += ["{0:3d}위 {1} - {2}".format(i+1, singer, title)]
+            result += ["No.{0:3d} {1} - {2}".format(i+1, singer, title)]
 
     if len(result) > 0:
         for r in result:
             print(r)
 
     else:
-        print("앗!" + Singer + "라는 가수, 또는 노래가 존재하지 않습니다.")
+        print("Ah! There is no named " + Singer + " named A or a song.")
 
     file = open("{}_to belongings Rank_100_(melon)".format(Singer), 'w', -1, 'UTF-8')
     for i in result:
         file.write(i + "\n")
     if len(result) > 0:
-        print("파일 쓰기 완료!!!")
+        print("Finished writing file!!!")
         file.close()
     else:
-        print("데이터 저장 실패ㅠㅠ")
+        print("Failed to save data..")
 
-    print("계속해서 다른 서비스들도 이용하시겠습니까?")
-    print("1. 예    2. 아니오")
-    a = input("메뉴 선택 : ")
+    print("Would you like to continue using other services?")
+    print("1. Yes    2. No")
+    a = input("Please Select the Menu : ")
     a_list = []
     while 1:
+        print("One moment, please.")
+        time.sleep(2)
         if a is '1':
-            print("잠시만 기다려주세요!!!")
-            time.sleep(1.2)
             from Melon_Attribute import mMelon
             melon = mMelon()
             a_list.append(melon)
             break
 
         elif a is '2':
-            print("종료 중...")
-            time.sleep(3)
+            print("Terminated Program")
             exit(0)
             break

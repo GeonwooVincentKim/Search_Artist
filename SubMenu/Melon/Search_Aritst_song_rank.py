@@ -4,7 +4,7 @@ import time
 
 def Melon_Artist_individual_rank():
     result = []
-    Individual_Singer_Rank = input("원하시는 가수를 입력하세요!!! : ")
+    Individual_Singer_Rank = input("Enter the name of the singer or song you want (Korean) : ")
     driver = webdriver.Chrome('D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver.exe')
     time.sleep(4.5)
     driver.get("https://www.melon.com/")
@@ -17,10 +17,10 @@ def Melon_Artist_individual_rank():
     driver.find_element_by_xpath('//*[@id="divCollection"]/ul/li[3]/a').click()
     song_titles = driver.find_elements_by_class_name('fc_gray')
 
-    print("원하시는 " + Individual_Singer_Rank + "에 대한 결과입니다.")
+    print("This is the result of " + Individual_Singer_Rank + " you want.")
     a = 1
     for title in song_titles:
-        result += ["{0:3d}위 {1}".format(a, title.text)]
+        result += ["No.{0:3d} {1}".format(a, title.text)]
         a += 1
 
     if len(result) > 0:
@@ -28,32 +28,31 @@ def Melon_Artist_individual_rank():
             print(r)
 
     else:
-        print("앗! " + Individual_Singer_Rank + "에 대한 정보가 없어요ㅠㅠ")
+        print("Ah! There is no named " + Individual_Singer_Rank + " or a song.")
 
     file = open("{}'s_Song_Rank_(melon).txt".format(Individual_Singer_Rank), 'w', -1, 'UTF-8')
     for i in result:
         file.write(i + '\n')
     if len(result) > 0:
-        print("파일 쓰기 완료!!!")
+        print("Finished writing file!!!")
         file.close()
     else:
-        print("데이터 저장 실패ㅠㅠ")
+        print("Failed to save data..")
 
-    print("계속해서 다른 서비스들도 이용하시겠습니까?")
-    print("1. 예    2. 아니오")
-    is_continue = input("메뉴 선택 : ")
+    print("Would you like to continue using other services?")
+    print("1. Yes    2. No")
+    is_continue = input("Please Select the Menu : ")
     is_list = []
     while 1:
+        print("One moment, please.")
+        time.sleep(2)
         if is_continue is '1':
-            print("잠시만 기다려주세요..")
-            time.sleep(1.2)
             from Melon_Attribute import mMelon
             melon = mMelon()
             is_list.append(melon)
             break
 
         elif is_continue is '2':
-            print("종료 중...")
-            time.sleep(1.2)
+            print("Terminated Program")
             exit(0)
             break

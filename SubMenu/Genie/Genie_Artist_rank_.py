@@ -1,10 +1,12 @@
+import time
+
 from bs4 import BeautifulSoup
 import requests
 
 
 def genie_artist_rank():
     result = []
-    indi_rank = input("원하시는 가수, 또는 원하는 곡의 이름을 입력하세요 : ")
+    indi_rank = input("Enter the name of the singer or song you want (Korean) : ")
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko"}
     get_link = "https://www.genie.co.kr/chart/top200?ditc=D&ymd=20190719&hh=21&rtm=Y&pg="
 
@@ -21,37 +23,38 @@ def genie_artist_rank():
             artist = artist_list[j+5].text.strip()
             song = song_list[j].text.strip()
             if indi_rank in artist or indi_rank in song:
-                result += ["{0:3d}위 {1} - {2}".format((i-1 * 50) + j + 1, artist, song)]
+                result += ["No.{0:3d} {1} - {2}".format((i-1 * 50) + j + 1, artist, song)]
 
     if len(result) > 0:
         for r in result:
             print(r)
 
     else:
-        print("앗! " +indi_rank + "에 관한 내용이 없다고 그래요ㅠㅠ 다시 한 번 확인해주세요")
+        print("Ah! There is no named " + indi_rank + " or a song.")
 
     file = open("{}_to belongings Rank_(genie).txt".format(indi_rank), 'w', -1, 'UTF-8')
     for i in result:
         file.write(i + "\n")
     if len(result) > 0:
-        print("파일 쓰기 완료!!!")
+        print("Finished writing file!!!")
         file.close()
     else:
-        print("데이터 저장 실패ㅠㅠ")
+        print("Failed to save data..")
 
-    print("계속해서 다른 서비스들도 이용하시겠습니까?")
-    print("1. 예    2. 아니오")
-    a = input("메뉴 선택 : ")
+    print("Would you like to continue using other services?")
+    print("1. Yes    2. No")
+    a = input("Please Select the Menu : ")
     a_list = []
     while 1:
+        print("One moment, please.")
+        time.sleep(2)
         if a is '1':
-            print("바로 뿅하고 갑니다!!!")
             from Genie_Attribute import mGenie
             first = mGenie()
             a_list.append(first)
             break
 
         elif a is '2':
-            print("바로 종료!!!")
+            print("Terminated Program")
             exit(0)
             break

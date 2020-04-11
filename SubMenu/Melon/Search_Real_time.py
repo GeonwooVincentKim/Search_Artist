@@ -1,3 +1,5 @@
+import time
+
 from bs4 import BeautifulSoup
 import urllib
 from urllib.error import HTTPError
@@ -15,43 +17,48 @@ def Melon_Real_time():
     charts = bsObj.findAll("div", {"class": "ellipsis rank01"})
     artists = bsObj.findAll("span", {"class": "checkEllipsis"})
 
-    print("잠시만 기다려주세요...")
+    print("Hold On Please!!")
     # f = open("Result_Melon100.txt", 'w', -1, 'UTF-8')
     for i in range(len(charts)):
         chart = charts[i].text.strip()
         artist = artists[i].text.strip()
-        result += ["{0:3d}위 {1} - {2}".format(i + 1, chart, artist)]
+        result += ["No.{0:3d} {1} - {2}".format(i + 1, chart, artist)]
         # print("{0:3d}위 {1} - {2}".format(i+1, chart, artist))
 
     if len(result) > 0:
         for r in result:
             print(r)
 
+    else:
+        print("Oops! Data could not be extracted.")
+
     file = open("Melon_RealTime_Rank_100.txt", 'w', -1, 'UTF-8')
     for i in result:
         file.write(i + "\n")
     if len(result) > 0:
-        print("파일 쓰기 완료!!!")
+        print("Finished writing file!!!")
         file.close()
     else:
-        print("데이터 저장 실패ㅠㅠ")
+        print("Failed to save data..")
 
-    print("계속해서 다른 서비스들도 이용하시겠습니까?")
-    print("1. 예    2. 아니오")
-    a = input("메뉴 선택 : ")
+    print("Would you like to continue using other services?")
+    print("1. Yes    2. No")
+    a = input("Please Select the Menu : ")
     a_list = []
     while 1:
+        print("One moment, please.")
+        time.sleep(2)
         if a is '1':
-            print("바로 뿅하고 갑니다!!!")
             from Melon_Attribute import mMelon
             first = mMelon()
             a_list.append(first)
             break
 
         elif a is '2':
-            print("바로 종료!!!")
-            first = exit(0)
-            a_list.append(first)
+            print("Terminated Program")
+            # first = exit(0)
+            # a_list.append(first)
+            exit(0)
             break
 
     # if len(result) > 0:

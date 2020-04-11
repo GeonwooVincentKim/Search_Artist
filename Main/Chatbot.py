@@ -29,30 +29,26 @@ def print_menu(bot, update):
     print("1. Melon")
     print("2. Bugs")
     print("3. Genie")
+    print("4. Terminate Program ")
     # cjw.sendMessage("무엇을 도와드릴까요? : ")
-    # select_menu = input("What Can I Help you? : ")
-    select_menu = input("무엇을 도와드릴까요? : ")
+    select_menu = input("What Can I Help you? : ")
+    # select_menu = input("무엇을 도와드릴까요? : ")
     select_list = []
     while 1:
+        print("Hold on please..")
         if select_menu is '1':
-            # cjw.sendMessage("Hold on Please...")
-            print("Hold on please..")
             time.sleep(2)
             melon = mMelon()
             select_list.append(melon)
             break
 
         elif select_menu is '2':
-            # cjw.sendMessage("Hold On Please...")
-            print("Hold On Please...")
             time.sleep(2)
             bugs = mBugs()
             select_list.append(bugs)
             break
 
         elif select_menu is '3':
-            # cjw.sendMessage("Hold on Please...")
-            print("Hold on please..")
             time.sleep(2)
             genie = mGenie()
             select_list.append(genie)
@@ -60,7 +56,7 @@ def print_menu(bot, update):
 
         elif select_menu is '4':
             print("Thank you for using this Chatbot_WebCrawler Application")
-            break
+            exit(0)
 
 
 # def proc_rolling(bot, update):

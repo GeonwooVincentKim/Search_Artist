@@ -6,7 +6,7 @@ import time
 
 def genie_artist_individual():
     result = []
-    individual_artist = input("원하시는 가수, 또는 원하는 곡의 이름을 입력해주세요 : ")
+    individual_artist = input("Enter the name of the singer or song you want (Korean) : ")
 
     driver = webdriver.Chrome("D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver.exe")
     driver.get("https://www.genie.co.kr")
@@ -21,7 +21,7 @@ def genie_artist_individual():
         xpath_artist = '//*[@id="body-content"]/div[4]/div[2]/div/table/tbody/tr[%s]/td[5]/a[2]' % str(i)
         title = driver.find_element_by_xpath(xpath_title).text
         artist = driver.find_element_by_xpath(xpath_artist).text
-        result += ["{0:3d}위  {1} - {2}".format(i+1, title, artist)]
+        result += ["No.{0:3d}  {1} - {2}".format(i+1, title, artist)]
         # print(driver.find_element_by_xpath(xpath_title).text)
     if len(result) > 0:
         for r in result:
@@ -31,24 +31,25 @@ def genie_artist_individual():
     for i in result:
         file.write(i + "\n")
     if len(result) > 0:
-        print("파일 쓰기 완료!!!")
+        print("Finished writing file!!!")
         file.close()
     else:
-        print("데이터 저장 실패ㅠㅠ")
+        print("Failed to save data..")
 
-    print("계속해서 다른 서비스들도 이용하시겠습니까?")
-    print("1. 예    2. 아니오")
-    a = input("메뉴 선택 : ")
+    print("Would you like to continue using other services?")
+    print("1. Yes    2. No")
+    a = input("Please Select the Menu : ")
     a_list = []
     while 1:
+        print("One moment, please.")
+        time.sleep(2)
         if a is '1':
-            print("바로 뿅하고 갑니다!!!")
             from Genie_Attribute import mGenie
             first = mGenie()
             a_list.append(first)
             break
 
         elif a is '2':
-            print("바로 종료!!!")
+            print("Terminated Program")
             exit(0)
             break

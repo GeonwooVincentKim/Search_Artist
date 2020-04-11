@@ -1,3 +1,5 @@
+import time
+
 from bs4 import BeautifulSoup
 import requests
 
@@ -14,7 +16,7 @@ def bugs_song_chart_real_time():
         # # print(artists[i].text)
         artist = artists[i].text.strip().split("\n")[0]
         titles = chart[i].text.strip()
-        result += ["{0:3d}위 {1} - {2}".format((i+1), artist, titles)]
+        result += ["No.{0:3d} {1} - {2}".format((i+1), artist, titles)]
 
     if len(result) > 0:
         for r in result:
@@ -25,25 +27,26 @@ def bugs_song_chart_real_time():
         file.write(i + '\n')
 
     if len(result) > 0:
-        print("파일 쓰기 완료!!!")
+        print("Finished writing file!!!")
         file.close()
 
     else:
-        print("데이터 저장 실패ㅠㅠ")
+        print("Failed to save data..")
 
-    print("계속해서 다른 서비스들도 이용하시겠습니까?")
-    print("1. 예    2. 아니오")
-    a = input("메뉴 선택 : ")
+    print("Would you like to continue using other services?")
+    print("1. Yes    2. No")
+    a = input("Please Select the Menu : ")
     a_list = []
     while 1:
+        print("One moment, please.")
+        time.sleep(2)
         if a is '1':
-            print("바로 뿅하고 갑니다!!!")
             from Bug_Attribute import mBugs
             first = mBugs()
             a_list.append(first)
             break
 
         elif a is '2':
-            print("바로 종료!!!")
+            print("Terminated Program")
             exit(0)
             break
