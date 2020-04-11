@@ -5,7 +5,7 @@ import time
 def Melon_Artist_individual_rank():
     result = []
     Individual_Singer_Rank = input("원하시는 가수를 입력하세요!!! : ")
-    driver = webdriver.Chrome('D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver/chromedriver.exe')
+    driver = webdriver.Chrome('D:/Utility/01.080.IDE/WebDriver/chromedriver_win32/chromedriver.exe')
     time.sleep(4.5)
     driver.get("https://www.melon.com/")
     time.sleep(4.5)
